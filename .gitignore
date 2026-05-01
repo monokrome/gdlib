@@ -1,0 +1,32 @@
+# Build artifacts
+*.o
+*.obj
+*.os
+*.so
+*.dylib
+*.dll
+*.lib
+*.a
+*.pdb
+*.exp
+*.ilk
+*.idb
+
+# SCons
+.sconsign.dblite
+.sconf_temp/
+config.log
+
+# IDE
+*.user
+*.suo
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+
+# Non-git hidden file patterns
+.*
+!.git*

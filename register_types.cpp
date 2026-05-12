@@ -2,8 +2,8 @@
 
 #include "core/object/class_db.h"
 
-#include "primitives/state_machine/state.h"
-#include "primitives/state_machine/state_machine.h"
+#include "src/state.h"
+#include "src/state_machine.h"
 
 void initialize_gdlib_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {

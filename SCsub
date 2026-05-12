@@ -8,7 +8,6 @@ env_gdlib = env_modules.Clone()
 
 module_obj = []
 
-env_gdlib.add_source_files(module_obj, "*.cpp")
-env_gdlib.add_source_files(module_obj, "primitives/state_machine/*.cpp")
+env_gdlib.add_source_files(module_obj, "src/*.cpp")
 
 env.modules_sources += module_obj

@@ -18,6 +18,8 @@ class ExtensiblePhysicsServer3D : public GodotPhysicsServer3D {
 	GDCLASS(ExtensiblePhysicsServer3D, GodotPhysicsServer3D);
 
 public:
+	ExtensiblePhysicsServer3D(bool p_using_threads = false) : GodotPhysicsServer3D(p_using_threads) {}
+
 	using ShapeFactory = GodotShape3D *(*)();
 
 	// One factory per process — there is only one custom shape "slot"

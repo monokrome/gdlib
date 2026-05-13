@@ -18,7 +18,13 @@ class ExtensiblePhysicsServer3D : public GodotPhysicsServer3D {
 	GDCLASS(ExtensiblePhysicsServer3D, GodotPhysicsServer3D);
 
 public:
-	ExtensiblePhysicsServer3D(bool p_using_threads = false) : GodotPhysicsServer3D(p_using_threads) {}
+	ExtensiblePhysicsServer3D(bool p_using_threads = false);
+	~ExtensiblePhysicsServer3D();
+
+	// PhysicsServer3D::get_singleton() returns a PhysicsServer3DWrapMT that
+	// hides our subclass behind the threading wrapper. Use this getter to
+	// reach the underlying ExtensiblePhysicsServer3D instance directly.
+	static ExtensiblePhysicsServer3D *get_extensible_singleton() { return extensible_singleton_; }
 
 	using ShapeFactory = GodotShape3D *(*)();
 
@@ -42,6 +48,7 @@ protected:
 
 private:
 	static ShapeFactory factory_;
+	static ExtensiblePhysicsServer3D *extensible_singleton_;
 };
 
 #endif

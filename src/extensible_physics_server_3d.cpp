@@ -1,6 +1,18 @@
 #include "extensible_physics_server_3d.h"
 
 ExtensiblePhysicsServer3D::ShapeFactory ExtensiblePhysicsServer3D::factory_ = nullptr;
+ExtensiblePhysicsServer3D *ExtensiblePhysicsServer3D::extensible_singleton_ = nullptr;
+
+ExtensiblePhysicsServer3D::ExtensiblePhysicsServer3D(bool p_using_threads) :
+		GodotPhysicsServer3D(p_using_threads) {
+	extensible_singleton_ = this;
+}
+
+ExtensiblePhysicsServer3D::~ExtensiblePhysicsServer3D() {
+	if (extensible_singleton_ == this) {
+		extensible_singleton_ = nullptr;
+	}
+}
 
 RID ExtensiblePhysicsServer3D::custom_shape_create() {
 	if (!factory_) {

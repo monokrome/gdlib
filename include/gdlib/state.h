@@ -1,6 +1,6 @@
 #pragma once
 
-#include "compat.h"
+#include "gdlib/compat.h"
 
 class StateMachine;
 

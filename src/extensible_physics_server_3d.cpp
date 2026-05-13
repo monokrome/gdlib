@@ -1,4 +1,4 @@
-#include "extensible_physics_server_3d.h"
+#include "gdlib/extensible_physics_server_3d.h"
 
 ExtensiblePhysicsServer3D::ShapeFactory ExtensiblePhysicsServer3D::factory_ = nullptr;
 ExtensiblePhysicsServer3D *ExtensiblePhysicsServer3D::extensible_singleton_ = nullptr;

@@ -2,10 +2,10 @@
 
 #include "core/object/class_db.h"
 
-#include "src/extensible_physics_server_3d.h"
-#include "src/spatial_container_node.h"
-#include "src/state.h"
-#include "src/state_machine.h"
+#include "gdlib/extensible_physics_server_3d.h"
+#include "gdlib/spatial_container_node.h"
+#include "gdlib/state.h"
+#include "gdlib/state_machine.h"
 
 void initialize_gdlib_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {

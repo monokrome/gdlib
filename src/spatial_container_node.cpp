@@ -1,4 +1,4 @@
-#include "spatial_container_node.h"
+#include "gdlib/spatial_container_node.h"
 
 void SpatialContainerNode::_bind_methods() {
 	// No bindings yet — internal-only helpers for subclasses

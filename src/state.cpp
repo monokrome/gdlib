@@ -1,6 +1,6 @@
-#include "state.h"
+#include "gdlib/state.h"
 
-#include "state_machine.h"
+#include "gdlib/state_machine.h"
 
 void State::set_state_name(const StringName &p_name) {
 	state_name = p_name;

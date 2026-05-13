@@ -1,10 +1,18 @@
 #!/usr/bin/env python
+import os
+
 from misc.utility.scons_hints import *
 
 Import("env")
 Import("env_modules")
 
 env_gdlib = env_modules.Clone()
+
+# Public headers live in include/gdlib/. Adding include/ to CPPPATH lets
+# gdlib's own sources reference them as `#include "gdlib/foo.h"`.
+# External consumers add their own CPPPATH entry pointing at this dir.
+script_dir = env.Dir(".").srcnode().abspath
+env_gdlib.Prepend(CPPPATH=[os.path.join(script_dir, "include")])
 
 module_obj = []
 

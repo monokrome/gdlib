@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../src/svo.h"
+#include "../include/gdlib/svo.h"
 
 #include "tests/test_macros.h"
 

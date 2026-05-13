@@ -1,6 +1,6 @@
-#include "state_machine.h"
+#include "gdlib/state_machine.h"
 
-#include "state.h"
+#include "gdlib/state.h"
 
 void StateMachine::set_initial_state(const StringName &p_name) {
 	initial_state = p_name;

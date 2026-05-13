@@ -10,11 +10,19 @@ RID ExtensiblePhysicsServer3D::custom_shape_create() {
 	if (!shape) {
 		return RID();
 	}
-	// shape_owner is `protected` (per the engine patch). The shape is now
-	// tracked by the standard server's RID system, so every other shape_*
-	// method (set_data, get_aabb, etc.) works through GodotPhysicsServer3D's
-	// existing implementations via polymorphism on the shape pointer.
-	RID rid = shape_owner.make_rid(shape);
-	shape->set_self(rid);
+	return register_custom_shape(shape);
+}
+
+RID ExtensiblePhysicsServer3D::register_custom_shape(GodotShape3D *p_shape) {
+	if (!p_shape) {
+		return RID();
+	}
+	// shape_owner is `protected` (per the engine patch). Once registered, the
+	// shape is tracked by the standard server's RID system, so every other
+	// shape_* method (set_data, get_aabb, etc.) works through
+	// GodotPhysicsServer3D's existing implementations via polymorphism on
+	// the shape pointer.
+	RID rid = shape_owner.make_rid(p_shape);
+	p_shape->set_self(rid);
 	return rid;
 }

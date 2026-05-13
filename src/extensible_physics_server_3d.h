@@ -23,10 +23,17 @@ public:
 	// One factory per process — there is only one custom shape "slot"
 	// in PhysicsServer3D::ShapeType. If you need multiple custom shapes,
 	// have the factory dispatch internally or stack physics servers.
+	// Used by the standard PhysicsServer3D::shape_create(SHAPE_CUSTOM) path.
 	static void set_custom_shape_factory(ShapeFactory p_factory) { factory_ = p_factory; }
 	static ShapeFactory get_custom_shape_factory() { return factory_; }
 
 	RID custom_shape_create() override;
+
+	// Register a pre-constructed and pre-configured custom shape. The
+	// server takes ownership of the pointer. Use this when the shape
+	// needs per-instance state (e.g., a pointer to an SVO) that the
+	// no-arg factory can't supply.
+	RID register_custom_shape(GodotShape3D *p_shape);
 
 protected:
 	static void _bind_methods() {}
